@@ -1,0 +1,8 @@
+- hosts: all
+  
+  vars:
+    myvar: "my_variable"  
+
+  tasks:
+  - debug: var=myvar
+  - debug: var=myvar1
