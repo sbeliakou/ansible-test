@@ -7,3 +7,4 @@
   - debug: var=myvar
   - debug: var=myvar1
   - debug: var=myvar2
+  - debug: var=myvar3
