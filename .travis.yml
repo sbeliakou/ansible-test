@@ -16,4 +16,4 @@ install:
 
 script:
   - ansible-playbook -i localhost, playbook.yml --syntax-check
-  - ansible-lint playbook.yml
+  - ansible-lint playbook.yml -x ANSIBLE0002
