@@ -1,0 +1,16 @@
+ANSIBLE0002 Trailing whitespace
+playbook.yml:2
+  
+
+ANSIBLE0002 Trailing whitespace
+playbook.yml:4
+    myvar: "my_variable"  
+
+ANSIBLE0002 Trailing whitespace
+playbook.yml:11
+  - debug: 
+
+ANSIBLE0002 Trailing whitespace
+playbook.yml:12
+  - debug:  
+
