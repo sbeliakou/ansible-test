@@ -17,7 +17,3 @@ install:
 script:
   - ansible-playbook -i localhost, playbook.yml --syntax-check
   - ansible-lint playbook.yml -x ANSIBLE0002
-
-cache:
-  directories:
-  - $HOME/virtualenv/python2.7.12/lib/python2.7/
