@@ -20,4 +20,4 @@ script:
 
 cache:
   directories:
-  - /home/travis/virtualenv/python2.7.12/lib/python2.7/
+  - $HOME/virtualenv/python2.7.12/lib/python2.7/
