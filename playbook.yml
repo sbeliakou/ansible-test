@@ -10,4 +10,3 @@
   - debug: var=myvar3
   - debug: 
   - debug: role=new 
-  
