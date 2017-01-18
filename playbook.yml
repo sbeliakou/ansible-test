@@ -9,4 +9,4 @@
   - debug: var=myvar2
   - debug: var=myvar3
   - debug: 
-  - debug: role=new
+  - debug: role=new 
