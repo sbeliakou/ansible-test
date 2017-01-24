@@ -1,5 +1,5 @@
 node("host-node") {
-   checks = [
+   def checks = [
       {
          checkout(
            [$class: 'GitSCM', branches: [[name: "${env.GITHUB_PR_HEAD_SHA}"]], userRemoteConfigs: [[url: 'https://github.com/sbeliakou/ansible-test/']]]
