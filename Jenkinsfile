@@ -1,5 +1,5 @@
 node("host-node") {
-   def checks = [
+   parallel step1:
       {
          checkout(
            [$class: 'GitSCM', branches: [[name: "${env.GITHUB_PR_HEAD_SHA}"]], userRemoteConfigs: [[url: 'https://github.com/sbeliakou/ansible-test/']]]
@@ -15,7 +15,7 @@ node("host-node") {
             }
          }
       },
-      {
+    step2: {
          checkout(
            [$class: 'GitSCM', branches: [[name: "${env.GITHUB_PR_HEAD_SHA}"]], userRemoteConfigs: [[url: 'https://github.com/sbeliakou/ansible-test/']]]
          )
@@ -31,8 +31,4 @@ node("host-node") {
          }
       }
    ]
-   
-   stage("Ansible Checks"){
-      parallel checks
-   }
 }
