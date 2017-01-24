@@ -7,7 +7,7 @@ node("host-node") {
       checkout(
            [$class: 'GitSCM',
             branches: [[name: "${env.GITHUB_PR_HEAD_SHA}"]],
-            userRemoteConfigs: [[url: 'ssh://git@corporate.com:repo.git']]]
+            userRemoteConfigs: [[url: 'https://github.com/sbeliakou/ansible-test/']]]
       )
       
       setGitHubPullRequestStatus context: 'Ansible Syntax Check', message: 'Syntax Check started', state: 'PENDING'
