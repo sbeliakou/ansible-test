@@ -1,8 +1,15 @@
 node("host-node") {
    stage("Syntax Check"){
-      git url: 'https://github.com/sbeliakou/ansible-test/',
-          branch: "${env.GITHUB_PR_HEAD_SHA}"
+      // git url: 'https://github.com/sbeliakou/ansible-test/',
+      //     branch: "${env.GITHUB_PR_HEAD_SHA}"
 
+      // checkout changelog: true, poll: true, scm: [$class: 'GitSCM', branches: [[name: "origin/????"]], doGenerateSubmoduleConfigurations: false, submoduleCfg: [], userRemoteConfigs: [[name: 'origin', url: 'git@github.com/project.git', credentialsId: 'github-id']]]
+      checkout(
+           [$class: 'GitSCM',
+            branches: [[name: "${env.GITHUB_PR_HEAD_SHA}"]],
+            userRemoteConfigs: [[url: 'ssh://git@corporate.com:repo.git']]]
+      )
+      
       setGitHubPullRequestStatus context: 'Ansible Syntax Check', message: 'Syntax Check started', state: 'PENDING'
       ansiColor('xterm') {
          try {
