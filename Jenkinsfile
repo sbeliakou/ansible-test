@@ -1,9 +1,8 @@
 node("host-node") {
    stage("Syntax Check"){
-      // git credentialsId: 'jenkins-selfserve-1', url: 'https://github.com/sbeliakou/ansible-test/'
-      git branch: "${GITHUB_PR_HEAD_SHA}", credentialsId: 'jenkins-selfserve-1', url: 'https://github.com/sbeliakou/ansible-test/'
+      git url: 'https://github.com/sbeliakou/ansible-test/',
+          branch: "${env.GITHUB_PR_HEAD_SHA}"
 
-      
       setGitHubPullRequestStatus context: 'Ansible Syntax Check', message: 'Syntax Check started', state: 'PENDING'
       ansiColor('xterm') {
          try {
