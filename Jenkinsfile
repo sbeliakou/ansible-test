@@ -30,5 +30,4 @@ node("host-node") {
             }
          }
       }
-   ]
 }
