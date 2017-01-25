@@ -5,7 +5,7 @@ node("host-node") {
 
    checkout scm
 
-   ansible_container = "sbeliakou/ansible:2.2.1-1"
+   ansible_container = "sbeliakou/ansible:2.2.1-2"
    ansible = "docker run --rm -v ${WORKSPACE}:${WORKSPACE} -w ${WORKSPACE} ${ansible_container} ansible-playbook -c local -i localhost,"
    
    ansiColor('xterm') {
