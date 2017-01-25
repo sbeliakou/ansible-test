@@ -1,0 +1,30 @@
+node("host-node") {
+   // checkout(
+   //    [$class: 'GitSCM', branches: [[name: "${env.GITHUB_PR_HEAD_SHA}"]], userRemoteConfigs: [[url: 'https://github.com/sbeliakou/ansible-test/']]]
+   // )
+
+   checkout scm
+
+   ansible_container = "sbeliakou/ansible:2.2.1-2"
+   
+   sh "docker pull ${ansible_container}"
+   
+   ansiColor('xterm') {
+      parallel check1:{
+         stage("Ansible Syntax Check"){
+            load 'syntax-check.groovy'
+         }
+      },
+      check2: {
+         stage("Ansible Dry-Run Check"){
+            load 'dry-run.groovy'
+         }
+      },
+      check3: {
+         stage("Ansible Deploy Check"){
+            load 'deploy.groovy'
+         }
+      }
+
+   }
+}
