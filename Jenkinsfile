@@ -8,7 +8,7 @@ node("host-node") {
    ansible_container = "sbeliakou/ansible:2.2.1-2"
    ansible = "docker run --rm -v ${WORKSPACE}:${WORKSPACE} -w ${WORKSPACE} ${ansible_container} ansible-playbook -c local -i localhost,"
    
-   sh "docker pull ${ansible}"
+   sh "docker pull ${ansible_container}"
    
    ansiColor('xterm') {
       parallel step1:{
