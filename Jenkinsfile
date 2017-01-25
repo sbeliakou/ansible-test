@@ -24,7 +24,7 @@ node("host-node") {
          stage("Ansible Dry-Run Check"){
             setGitHubPullRequestStatus context: 'Ansible Dry-Run Check', message: 'Dry-Run Check started', state: 'PENDING'
             try {
-               sh "ansible --check playbook.yml"
+               sh "${ansible} --check playbook.yml"
                setGitHubPullRequestStatus context: 'Ansible Dry-Run Check', message: 'Dry-Run Check completed successfully', state: 'SUCCESS'
             } catch (err){
                setGitHubPullRequestStatus context: 'Ansible Dry-Run Check', message: 'Dry-Run Check Failed', state: 'FAILURE'
